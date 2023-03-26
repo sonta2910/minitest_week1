@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List</title>
+</head>
+<body>
+<h1>List Pictures</h1>
+<p>
+  <button>
+    <a th:href="@{pictures/create}">Create new</a></button>
+</p>
+<table id="picture" border="1">
+  <thead>
+  <tr>
+    <th>Code</th>
+    <th>Length</th>
+    <th>Width</th>
+    <th>Material</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>ACTION</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="e : ${pictures}">
+    <td th:text="${e.getPictureCode()}"></td>
+    <td th:text="${e.getLength()}"></td>
+    <td th:text="${e.getWidth()}"></td>
+    <td th:text="${e.getMaterial()}"></td>
+    <td th:text="${e.getPrice()}"></td>
+    <td th:text="${e.getDescription()}"></td>
+    <td><a th:href="@{/pictures/update/{id}(id=${e.getId()})}">EDIT</a></td>
+    <td><a th:href="@{/pictures/delete/{id}(id=${e.getId()})}">DELETE</a></td>
+    <td><a th:href="@{/pictures/detail/{id}(id=${e.getId()})}">Detail</a></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

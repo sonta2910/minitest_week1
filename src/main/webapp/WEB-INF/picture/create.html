@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new picture</title>
+</head>
+<body>
+<h1>Form create</h1>
+<button>
+    <a th:href="@{/pictures}">Back to list picture</a></button>
+<form action="/pictures" method="post" th:object="${picture}">
+    <label>Code <input type="text"  th:field="*{pictureCode}"></label><br>
+    <label>Length <input type="text" th:field="*{length}"></label><br>
+    <label>Width <input type="text" th:field="*{width}"></label><br>
+    <label>Material <input type="text" th:field="*{material}"></label><br>
+    <label>Price <input type="text" th:field="*{price}"></label><br>
+    <label>Description <input type="text" th:field="*{description}"></label><br>
+    <button type="submit">Create</button>
+</form>
+</body>
+</html>

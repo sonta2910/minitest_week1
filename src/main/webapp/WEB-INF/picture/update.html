@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Picture</title>
+</head>
+<body>
+<h1>Form Update</h1>
+<button>
+    <a th:href="@{/pictures/}">Back to list</a></button>
+<form action="/pictures/update" method="post" th:object="${picture}">
+    <input type="text" th:value="${picture.getId()}" th:field="*{id}" hidden>
+    <label>Code </label>
+    <input type="text" th:field="*{pictureCode}" th:value="${picture.getPictureCode()}">
+    <label>Length <input type="text" th:value="${picture.getLength()}" th:field="*{length}"></label>
+    <label>Width <input type="text" th:value="${picture.getWidth()}" th:field="*{width}"></label>
+    <label>Material <input type="text" th:value="${picture.getMaterial()}" th:field="*{material}"></label>
+    <label>Price <input type="text" th:value="${picture.getPrice()}" th:field="*{price}"></label>
+    <label>Description <input type="text" th:value="${picture.getDescription()}" th:field="*{description}"></label>
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>
